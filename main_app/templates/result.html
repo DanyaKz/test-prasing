@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Поиск.." name="get-information-name">
+        <button type="submit" >Спарсить</button>
+    </form>
+    <br>
+    {% for i in kk %}
+    <a href="{{i.link}}">{{i.title}}</a>
+    <br>
+    <p>{{i.content}}</p>
+    <p>Unix now - {{i.s_date}}</p>
+    <p>Unix of article {{i.nd_date}} </p>
+    <p>Publish date of article - <strong>{{i.not_date}}</strong></p>
+    {% endfor %}
+
+</body>
+</html>
